@@ -1,0 +1,14 @@
+{
+"fields":{
+    "name":{
+      "name":"name",
+      "type":"text",
+      "placeholder":"Sensor name"
+    },
+    "location":{
+      "name":"location",
+      "type":"text",
+      "placeholder":"Sensor location"
+    }
+  }
+}

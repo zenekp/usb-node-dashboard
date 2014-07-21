@@ -1,0 +1,11 @@
+<div ng-controller="ListCtrl">
+	<a href="{{modelName}}/create">Create {{modelName}}</a>
+  <ul class="items">
+    <li ng-repeat="item in items | filter:query | orderBy:orderProp" class="thumbnail">
+      <a href="#/{{modelName}}/update/{{item._id}}" class="thumb"><img ng-src="{{item.imageUrl}}"></a>
+      <a href="#/{{modelName}}/update/{{item._id}}">{{item.name}}</a>
+      <p>{{item.snippet}}</p>
+      <a ng-click="delete(item._id)">Delete</a>
+    </li>
+  </ul>
+</div>

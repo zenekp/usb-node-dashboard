@@ -1,0 +1,11 @@
+<div ng-if="isAuthorized(userRoles.admin)">
+  <p>You are signed in.</p>
+</div>
+<div ng-if="!isAuthorized(userRoles.admin)">
+  <form class="form-signin" novalidate ng-submit="login(credentials)">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" class="form-control" placeholder="Username" required="" autofocus="" ng-model="credentials.clientId">
+    <input type="password" class="form-control" placeholder="Password" required="" ng-model="credentials.clientSecret">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div>

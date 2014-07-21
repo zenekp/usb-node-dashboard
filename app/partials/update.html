@@ -1,0 +1,9 @@
+<form ng-submit="update(item)">
+  <h2>Update {{modelName}}</h2>
+  <div ng-repeat="field in config.fields">
+    <input type="{{field.type}}" placeholder="{{field.placeholder}}" ng-model="item[field.name]" />
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+</form>
+
+<a href="{{modelName}}">Cancel</a>
