@@ -42,7 +42,7 @@ config(function($routeProvider,$httpProvider,$locationProvider) {
 	$routeProvider.when('/:model/:action/:id', {templateUrl: 'partials/update.html', controller: 'ReadDeleteCtrl'}); // read, update, delete
 	$routeProvider.otherwise({redirectTo: '/'});
 }).
-factory('httpInterceptor', function httpInterceptor($q, $window, $location) { console.log($q, $window, $location);
+factory('httpInterceptor', function httpInterceptor($q, $window, $location) {
 	return function (promise) {
 		var success = function (response) {
 			return response;
