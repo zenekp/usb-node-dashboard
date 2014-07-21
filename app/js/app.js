@@ -34,13 +34,13 @@ config(function($routeProvider,$httpProvider,$locationProvider) {
 		}
 	};
 	
-	// $routeProvider.when('/', {templateUrl: 'partials/report.html', controller: 'ReportCtrl'});
+	$routeProvider.when('/', {templateUrl: 'partials/report.html', controller: 'ReportCtrl'});
 	$routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
 	$routeProvider.when('/:model', {templateUrl: 'partials/list.html', controller: 'ListCtrl'});
 	$routeProvider.when('/:model/create', {templateUrl: 'partials/create.html', controller: 'CreateCtrl', resolve: configResolve});
 	$routeProvider.when('/:model/update/:id', {templateUrl: 'partials/update.html', controller: 'UpdateCtrl', resolve: configResolve });
 	$routeProvider.when('/:model/:action/:id', {templateUrl: 'partials/update.html', controller: 'ReadDeleteCtrl'}); // read, update, delete
-	$routeProvider.otherwise({redirectTo: '/'});
+	$routeProvider.otherwise({redirectTo: '/login'});
 }).
 factory('httpInterceptor', function httpInterceptor($q, $window, $location) {
 	return function (promise) {
