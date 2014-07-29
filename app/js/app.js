@@ -6,7 +6,8 @@ angular.module('USBDashboard', [
 	'USBDashboard.services',
 	'USBDashboard.directives',
 	'USBDashboard.controllers',
-	'angularLocalStorage'
+	'angularLocalStorage',
+	'doowb.angular-pusher'
 ]).
 config(function($routeProvider,$httpProvider,$locationProvider) {
 	$httpProvider.responseInterceptors.push('httpInterceptor');
@@ -67,4 +68,9 @@ constant('AUTH_EVENTS', {
 	sessionTimeout: 'auth-session-timeout',
 	notAuthenticated: 'auth-not-authenticated',
 	notAuthorized: 'auth-not-authorized'
-});
+}).
+config(['PusherServiceProvider',
+  function(PusherServiceProvider) {
+    PusherServiceProvider.setToken('749fe4e36ad8d9f53f17').setOptions({});
+  }
+]);

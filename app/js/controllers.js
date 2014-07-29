@@ -71,7 +71,6 @@ USBDashboardControllers.controller('UpdateCtrl', ['$scope', '$routeParams', '$lo
 		};		
 }]);
 
-
 USBDashboardControllers.controller('ReadDeleteCtrl', ['$scope', '$routeParams', '$location', 'ReadUpdateDeleteFactory', 'API', 'storage',
 	function($scope, $routeParams, $location, ReadUpdateDeleteFactory, API, storage) {
 		$scope.modelName = $routeParams.model;
@@ -88,9 +87,25 @@ USBDashboardControllers.controller('ReadDeleteCtrl', ['$scope', '$routeParams', 
 
 }]);
 
-
-USBDashboardControllers.controller('ReportCtrl', ['$scope', '$routeParams', 'ReportFactory', 'API', 'storage',
-	function($scope, $routeParams, ReportFactory, API, storage) {
+USBDashboardControllers.controller('ReportCtrl', ['$scope', '$routeParams', 'TemperatureFactory', 'API', 'storage', 'Pusher',
+	function($scope, $routeParams, TemperatureFactory, API, storage, Pusher) {
+		$scope.sensor = '533d7d699a31316640110f52';//$routeParams.sensor;
+		$scope.temperature = 0;
+		TemperatureFactory($scope.sensor, API, storage.get('token')).find()
+		.$promise.then(
+			function(value) { // success
+				console.log(value);
+				$scope.temperature = value[value.length - 1].temperature;
+			},
+			function(error) { // failure
+				console.log(error);
+			}
+		);
+		Pusher.subscribe('test_channel', 'temperature_update', function (value) {
+			if (typeof value === 'object' && value[value.length - 1] && value[value.length - 1].temperature != undefined) {
+				$scope.temperature = value[value.length - 1].temperature;
+			}
+		});
 }]);
 
 USBDashboardControllers.controller('LoginCtrl', function($scope, $rootScope, AUTH_EVENTS, AuthFactory) {

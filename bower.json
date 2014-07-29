@@ -15,11 +15,12 @@
     "bootstrap": "3.2.x",
     "jquery": ">= 1.9.0",
     "angular": "1.2.x",
-	  "angular-resource": "1.2.x",
+	"angular-resource": "1.2.x",
     "angular-route": "1.2.x",
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.15",
     "angular-cookies": "1.2.x",
-    "angularLocalStorage": "0.1.7"
+    "angularLocalStorage": "0.1.7",
+    "angular-pusher": "0.0.7"
   }
 }

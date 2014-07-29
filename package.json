@@ -28,7 +28,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-compass": "~0.9.0",
     "karma": "~0.10",
     "protractor": "~0.17.0",
     "node-static": "~0.7.4",

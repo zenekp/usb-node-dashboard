@@ -1,7 +1,8 @@
 <form ng-submit="create(item)">
-  <h2>Create {{modelName}}</h2>
-  <div ng-repeat="field in config.fields">
-    <input type="{{field.type}}" placeholder="{{field.placeholder}}" ng-model="item[field.name]" />
+  <h2>Create <span>{{modelName}}</span></h2>
+  <div ng-repeat="field in config.fields" class="form-group">
+    <label for="{{field.name}}_input">{{field.name}}</label>
+    <input type="{{field.type}}" placeholder="{{field.placeholder}}" id="{{field.name}}_input" class="form-control" ng-model="item[field.name]" />
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
 </form>

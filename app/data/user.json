@@ -1,0 +1,18 @@
+{
+"fields":{
+    "name":{
+      "name":"name",
+      "type":"text",
+      "placeholder":"name"
+    },
+    "username":{
+      "name":"username",
+      "type":"text",
+      "placeholder":"user name"
+    },
+    "password":{
+      "name":"password",
+      "type":"password"
+    }
+  }
+}

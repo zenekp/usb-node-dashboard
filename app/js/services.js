@@ -2,6 +2,21 @@
 
 var USBDashboardServices = angular.module('USBDashboard.services', ['ngResource']);
 
+USBDashboardServices.factory('TemperatureFactory', ['$resource',
+  function($resource){
+	return function(sensor, API, token) {
+		return $resource(API.serviceURL+'/temperature/'+sensor, {'grant_type':'client_credentials'}, {
+			find: {
+				method:'GET',
+				isArray:true,
+				headers:{
+					'Authorization': 'Bearer '+token
+				}
+			}
+		});
+	};
+}]);
+
 USBDashboardServices.factory('ListFactory', ['$resource',
   function($resource){
 	return function(model, API, token) {
